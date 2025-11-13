@@ -1,4 +1,4 @@
-# Processo de instalação do ROS 2 jazzy para Ubundu 24.04 noble.
+# Processo de Instalação do ROS 2 Jazzy para Ubundu 24.04 Noble.
 
 Siga os comandos abaixo para instalar o ROS2 Jazzy no Ubuntu 24.04:
 
@@ -113,6 +113,7 @@ gz sim shapes.sdf -v 4
 ````
 CTRL C para fechar.
 
+
 ## Exemplo de um programa ROS2: talker-listener
 É possível rodarnos um programa que imprime mensagens na tela e outro que escuta estas mensagens:
 ````
@@ -122,9 +123,22 @@ Em outro terminal:
 ````
 ros2 run demo_nodes_cpp listener
 ````
+CTRL C nos dois terminais para fechar.
+
+## Pacote para ver vários terminais simultaneamente
 ````
+sudo apt-get install terminator -y
+terminator
 ````
+
+# Entendendo DDS e a Variável ROS_DOMAIN_ID
+
+ROS_DOMAIN_ID é uma variável que determina o canal de comunicação entre diferentes equipes de robôs. Por exemplo, se todos os robôs precisam se comunicar, eles terão o mesmo ROS_DOMAIN_ID, mas se precisarem se comunicar entre si sem interferir em outras equipes de robôs, precisarão ter ROS_DOMAIN_ID diferentes. Alguns exemplos:
+O comando abaixo muda o valor do ROS_DOMAIN_ID (para 8, por exemplo).
+
+O comando abaixo me mostra qual é o ROS_DOMAIN_ID  atual do meu terminal
 ````
+export ROS_DOMAIN_ID=8
 ````
 ````
 ````
