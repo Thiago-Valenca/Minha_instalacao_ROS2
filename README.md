@@ -69,15 +69,30 @@ env | grep ROS
 ````
 echo $ROS_DISTRO
 ````
+Continuando a instalação:
+````
+sudo rosdep init
 ````
 ````
+rosdep update
 ````
+Então, podemos instalar alguns softwares necessários:
 ````
+sudo apt-get install python3 python3-pip -y
+sudo apt-get install ros-${ROS_DISTRO}-ros-gz -y
+sudo apt-get install python3-numpy
 ````
+Já podemos rodar um exemplo de simulação no Gazebo através do seguinte comando em um novo terminal:
 ````
+$ LIBGL_ALWAYS_SOFTWARE=1 QT_QPA_PLATFORM=xcb gz sim -v 4 shapes.sdf
 ````
+Então pressione CTRL C para fechar.
+
+Em outro terminal:
 ````
-````
+echo "export LIBGL_ALWAYS_SOFTWARE=1" >> ~/.bashrc
+echo "export QT_QPA_PLATFORM=xcb" >> ~/.bashrc
+source ~/.bashrc
 ````
 ````
 ````
