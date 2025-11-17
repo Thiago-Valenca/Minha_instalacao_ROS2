@@ -153,13 +153,28 @@ cd ~/ros2_ws/
 ````
 colcon build
 ````
-Isto retornará 0 packages, porque não fizemos nenhum ainda.
+Isto retornará 0 packages, porque não fizemos nenhum ainda. O comando colcon build sempre deve ser realizado no root do meu workspace, quando fazemos modificações no código fonte do robô.
+
+Agora, se escrevermos o comando abaixo no terminal, veremos as novas pastas que foram criadas em nosso workspace.
 ````
+dir
 ````
+Vemos que as pastas build, install e log foram criadas.
+
+Para ter certeza que nosso workspace pode ser acessado em qualquer momento que abrimos um novo terminal:
 ````
+echo "source ~/ros2_ws/install/setup.bash" >> ~/.bashrc
+source ~/.bashrc
 ````
+Para ver se nosso workspace foi adicionado à fonte dos terminais:
 ````
+gedit ~/.bashrc
 ````
+Na janela aberta, vemos que nosso workspace foi adicionado no fim do arquivo. Agora, nosso workspace pode ser encontrado sempre que abrimos um novo terminal.
+
+# Instalando e Configurando VS Code para ROS 2 Jazzy
+
+
 ````
 ````
 ````
