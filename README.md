@@ -136,10 +136,14 @@ terminator
 ROS_DOMAIN_ID é uma variável que determina o canal de comunicação entre diferentes equipes de robôs. Por exemplo, se todos os robôs precisam se comunicar, eles terão o mesmo ROS_DOMAIN_ID, mas se precisarem se comunicar entre si sem interferir em outras equipes de robôs, precisarão ter ROS_DOMAIN_ID diferentes. Alguns exemplos:
 O comando abaixo muda o valor do ROS_DOMAIN_ID (para 8, por exemplo).
 
-O comando abaixo me mostra qual é o ROS_DOMAIN_ID  atual do meu terminal
+O comando abaixo me mostra qual é o ROS_DOMAIN_ID  atual do meu terminal.
 ````
 export ROS_DOMAIN_ID=8
 ````
+# Como Criar uma Workspace no ROS 2 Jazzy
+
+Uma Workspace é uma pasta que sera o local principal de desenvolvimento e organizacao do software do robo
+
 ````
 ````
 ````
