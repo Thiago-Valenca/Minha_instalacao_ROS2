@@ -174,46 +174,107 @@ Na janela aberta, vemos que nosso workspace foi adicionado no fim do arquivo. Ag
 
 # Instalando e Configurando VS Code para ROS 2 Jazzy
 
+Podemos instalar o VS Code pesquisando "visual studio code download linux" no Google.
 
+No terminal:
+````
+cd ~/Downloads
+pwd
+dir
+sudo dpkg -i {nome que aparece depois que você digita dir, começando com "code"}
+````
+Agora, o VS Code foi instalado. Então, precisamos ir para nosso workspace.
+````
+cd ~/ros2_ws
+pwd
+````
+Para abrir o VS Code:
+````
+code .
+````
+Podemos trocar o tema para Solarized Dark para melhor conforto visual. Na aba de extensões, devemos baixar a extensão de C/C++ (da Microsoft), a extensão do ROS (da Microsoft), a extensão do CMake (do twxs), a extensão CMake Tools (da Microsoft), a extensão XML (da Red Hat), a extensão Python (da Microsoft) e a extensão autoDocstring (do Nils Werner). Agora, vá em File, Preferences, Setting, pesquise por Indentation e na aba Editor: Tab Size, troque de 4 para 2. Feche o VS Code em File, Close Window.
+
+No terminal
+````
+cd ~/ros2_ws/src
+````
+Assim, abrimos o VS Code dentro do folder de código fonte do nosso workspace
+
+# Como Criar um Pacote no ROS 2 Jazzy
+
+No ROS, pacotes são pastas que contém funcionalidades ou componentes específicos de um sistema robótico. Ou seja, o pacote contém códigos, arquvos, definições de mensagens. O spacotes ajudam a modular o desenvolvimento e manter o sistema funcionando, pemritindo reutilizar o pacote em outros projetos.
+
+No terminal:
+````
+cd ~/ros2_ws/srck
+ros2 pkg create --build-type ament_cmake --license Apache-2.0 ros2_fundamentals_examples
+````
+Este comando criou o pacote ros2_fundamentals_examples em nosso workspace."--build-type ament_cmake" especifica que o pacote deve usar o ament cmake build system, que é o sistema de criação recomendado para pacotes escritos em C++, para ter certeza que tudo está compilado, ligado e pronto para funcionar. "--license Apache-2.0" é uma licença com restrições mínimas que permite que os usuários modifiquem e distribuam o software
+
+Para ver o pacote na workspace:
+````
+clear
+dir
+````
+Para construir nosso pacote, navegamos até o root do workspace:
+````
+cd ..
+clear
+colcon build
+````
+Para checar se nosso pacote é reconhecido pelo ROS 2:
+````
+source ~/.bashrc
+clear
+````
+Em outro terminal:
+````
+ros2 pkg list
+````
+Podemos ver que nosso pacote foi incluído
+````
+clear
+echo "alias build='cd ~/ros2_ws && colcon build'" >> ~/.bashrc && source ~/.bashrc
+````
+Esta linha de comando faz com que, ao digitarmos "build" no terminal, vamos executar os caomandos cd ~/ros2_ws e colcon build. Além disso, ele adiciona o alias ao arquivo fonte do bashrc para ser reconhecido aem qualquer terminal. Agora, se dermos o comando:
+````
+build
+````
+Será o mesmo que digitarmos
+````
+cd ~/ros2_ws
+colcon build
+````
+Se você quiser construir um pacote específico, e não todos os pacotes, podemos digitar:
+````
+colcon build --packages-select ros2_fundamentals_examples
+````
+Vamos instalar alguns pacotes que irão nos auxiliar.
+````
+sudo apt-get update
+sudo apt-get upgrade
+sudo apt-get install terminator
+````
+Pode pesquisar por "Terminator" nos aplicativos e abrí-lo ou digitar:
+````
+terminator
+````
+Agora sim, para instalar os pacotes:
+````
+sudo curl -sSL http://raw.githubusercontent.com/ros/rosdistro/master/ros.key -o /usr/share/keyrings/ros-archive-keyring.gpg
 ````
 ````
+echo "deb [signed-by=/usr/share/keyrings/ros-archive-keyring.gpg] http://packages.ros.org/ros2/ubuntu noble main" | sudo tee /etc/apt/sources.list.d/ros2.list
 ````
 ````
+sudo apt update
+clear
 ````
 ````
+sudo apt-get install -y ros-${ROS_DISTRO}-ros-gz
 ````
 ````
-````
-````
-````
-````
-````
-````
-````
-````
-````
-````
-````
-````
-````
-````
-````
-````
-````
-````
-````
-````
-````
-````
-````
-````
-````
-````
-````
-````
-````
-````
-````
+sudo apt-get install -y ros-${ROS_DISTRO}-ros-gz ros-${ROS_DISTRO}-gz-ros2-control ros-${ROS_DISTRO}-gz-ros2-control-demos ros-${ROS_DISTRO}-joint-state-publisher-gui ros-${ROS_DISTRO}-moveit ros-${ROS_DISTRO}-xacro ros-${ROS_DISTRO}-ros2-control ros-${ROS_DISTRO}-ros2-controllers libserial-dev python3-pip
 ````
 ````
 ````
