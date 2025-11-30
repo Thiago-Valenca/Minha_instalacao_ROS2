@@ -206,7 +206,7 @@ No ROS, pacotes são pastas que contém funcionalidades ou componentes específi
 
 No terminal:
 ````
-cd ~/ros2_ws/srck
+cd ~/ros2_ws/src
 ros2 pkg create --build-type ament_cmake --license Apache-2.0 ros2_fundamentals_examples
 ````
 Este comando criou o pacote ros2_fundamentals_examples em nosso workspace."--build-type ament_cmake" especifica que o pacote deve usar o ament cmake build system, que é o sistema de criação recomendado para pacotes escritos em C++, para ter certeza que tudo está compilado, ligado e pronto para funcionar. "--license Apache-2.0" é uma licença com restrições mínimas que permite que os usuários modifiquem e distribuam o software
@@ -236,7 +236,7 @@ Podemos ver que nosso pacote foi incluído
 clear
 echo "alias build='cd ~/ros2_ws && colcon build'" >> ~/.bashrc && source ~/.bashrc
 ````
-Esta linha de comando faz com que, ao digitarmos "build" no terminal, vamos executar os caomandos cd ~/ros2_ws e colcon build. Além disso, ele adiciona o alias ao arquivo fonte do bashrc para ser reconhecido aem qualquer terminal. Agora, se dermos o comando:
+Esta linha de comando faz com que, ao digitarmos "build" no terminal, vamos executar os caomandos cd ~/ros2_ws e colcon build. Além disso, ele adiciona o alias ao arquivo fonte do bashrc para ser reconhecido em qualquer terminal. Agora, se dermos o comando:
 ````
 build
 ````
